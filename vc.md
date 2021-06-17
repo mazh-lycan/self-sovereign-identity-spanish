@@ -51,6 +51,9 @@ Entradas específicas de la representación central JSON:
 ```
 «[ "@context" -> "https://www.w3.org/ns/did/v1" ]»
 ```
+
+Esta URI define la estructura (vendría a ser como el DTD de XML) o JSON SChema en JSon
+
 Un documento DID puede tener varias entradas con distintas claves públicas en distintos formatos, varias entradas con distintas formas de autenticación y varias entradas con distintos métodos de verificación.
 
 ![Entries in the DID Document map](https://www.w3.org/TR/did-core/diagrams/diagram-did-document-entries.svg)
@@ -261,6 +264,10 @@ Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table
 - Confianza bidireccional.
 
 	- El Holder debe poder verificarse ante el Provider al igual que el Provider debe poder verficarse ante el Holder.
+
+# FAQ
+
+- VCs "cualifidadas": se estaá investigando si existe algo así, refereido a tiempo. En particular aparece como campo de validez `issuanceDate`. NB, puede ser una fecha futura.
 
 # Referencias
 

@@ -64,7 +64,10 @@ Los datos en una representación se pueden convertir a este modelo de datos, y d
 
 ## Conceptos básicos para la especificación de Verifiable Credentials
 
-**La forma de la verificación no es normativa.**
+**La forma de la verificación no es normativa, esto es el campo de `proof`.**
+  Todos los demás campos o propiedades, que se dictan a continuación del ejemplo, poseen esa nomenclatura.
+  
+   Los valores que puedan tomar internamente, como *name*, se sigue buscando si hay algún tipo de estándar.
 
 ```
 {
@@ -130,7 +133,8 @@ Es posible expresar información adicional sobre el **issuer** asociando un obje
 ***issuanceDate***
 Debe ser un único valor.
 Sello temporal que determina cuándo una credencial se convierte en válida.
-Debe ser un valor **String** del RFC3339. Puede ser una fecha futura. Determina el momento en el que  la propiedad credentialSubject pasa a ser válida.
+Debe ser un valor en formato **String** del RFC3339. Puede ser una fecha futura. Determina el momento en el que  la propiedad credentialSubject pasa a ser válida.
+**NOTA**: Este valor es probable que vea cambiado su nombre a ***validFrom*** dentro e un apartado denominado ***issued*** en una especificación futura del W3C. El formato seguiría siendo el mismo.
 
 ***proofs***
 Las firmas digitales que validan la VC. Emplean metodologías criptográficas. El ejemplo anterior emplea una prueba con firmas RSA.
@@ -143,6 +147,12 @@ Debe ser un valor **String** del RFC3339.
 ***credentialStatus***
 **Este valor no es obligatorio** 
 Especifica si una credencial está revocada o suspensa. Este valor incluye un identificador **id** en formato **URL** y un **type** donde se especifica el estado. 
+
+### **Herramienta de W3C para testear que la forma de una VC es correcta:**
+
+https://w3c.github.io/vc-test-suite
+
+
 
 
 ## Conceptos básicos para la especificación de Verifiable Presentations
@@ -193,37 +203,40 @@ Flujos de información de la especificación W3C para VCs:
 
 ![The roles and information flows for this specification.](https://www.w3.org/TR/vc-data-model/diagrams/ecosystemdetail.svg)
 
+
+
+
+
 # Empresas y Organizaciones que proporcionan este servicio
 
 Empresas:
 
 - [**Evernym**](https://www.evernym.com): Relacionados con el Decentralized Identifier Working Group de W3C a través de **Brent Zundel** brent.zundel@evernym.com, copresidente del grupo junto a Daniel Burnett. 
 
-	- [**Verity**](https://www.evernym.com/products/#verity): Producto que gestiona las VCs, los holders y los verifiers. [Video](https://vimeo.com/455946377?width=640&height=480)
+	- [Verity](https://www.evernym.com/products/#verity): Producto que gestiona las VCs, los holders y los verifiers. [Video](https://vimeo.com/455946377?width=640&height=480)
 
-	- [**Connect.me**](https://try.connect.me/): Wallet.
+	- [Connect.me](https://try.connect.me/): Wallet.
 
-	- [**Mobile Wallet SDK**](https://www.evernym.com/blog/evernym-mobile-sdk/): SDK para implementar las funcionalidades de su wallet.
+	- [Mobile Wallet SDK](https://www.evernym.com/blog/evernym-mobile-sdk/): SDK para implementar las funcionalidades de su wallet.
 
-	- [**Sovrin**](https://sovrin.org/)
+	- [Sovrin](https://sovrin.org/): Red metasistema donde organizaciones pueden incorporarse para formar parte del ecosistema de SSI. Permite la conexión a través de numerosas wallets.
 
-	- [**Hyperledger INDY**](https://www.hyperledger.org/use/hyperledger-indy)
+	- [Hyperledger INDY](https://www.hyperledger.org/use/hyperledger-indy): Proveedor de herramienas, librerías y componentes reutilizables para proveer de identidades digitales descentralizadas.
 
-- [**Gataca**](https://gataca.io/):
+- [**Gataca**](https://gataca.io/): Compañía de ciberseguridad. Su producto se adapta a cualquier blockchain, a elección del cliente.
 
-- [**Danubetech**](https://danubetech.com/technologies.html):
+- [**Danubetech**](https://danubetech.com/technologies.html): Además de una infraestrutura universal de DID, desarrollan XDI Identity Agents, un producto que usa el protocolo de intercambio de datos semánticos estándar XDI, de OASIS XDI Technical Committee, para formar grafos. 
 
-- [**Dominode**](http://www.dominode.com/):
+- [**MATTR**](https://mattr.global/): Arquitectura modular. Uso de librerías, componentes y herramientas de Hyperledger.
 
-- [**MATTR**](https://mattr.global/):
+- [**Hyland Credentials**](https://www.hylandcredentials.com/): Compañía ed Learning Machine. DIseñó el estándar abierto Blockcerts y copresidió el W3C Credentials Community Group. 
 
-- [**Hyland Credentials**](https://www.hylandcredentials.com/):
+- [**Spherity**](https://spherity.com/):  Producto inicialmente orientado a ayudar a compañías a cumplir el Drug Supply Chain Security Act (DSCSA). También proveen de una Cloud Identity Wallet. Su Credential Issuer es LEGISYM. 
+	- [LEGISYM](https://legisym.com/): Credential Issuer especializado en trato con compañías de farmacología.
 
-- [**Spherity**](https://spherity.com/):
+- [**Transmute**](https://www.transmute.industries/): Flujos de trabajo automatizados para acelerar los procesamientos.
 
-- [**Transmute**](https://www.transmute.industries/):
-
-Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table/). Algunas de ellas se orientan a servicios muy concretos, como por ejemplo:
+Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table/) y [aquí](https://decentralized-id.com/#companies). Algunas de ellas se orientan a servicios muy concretos, como por ejemplo:
 
 - [**HearRo**](https://www.hearro.com/): Orientado a llamadas y mensajería móvil.
 
@@ -231,10 +244,12 @@ Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table
 
 - [**Selfkey**](https://selfkey.org/): Orientado a sistemas financieros.
 
+- [**Dominode**](http://www.dominode.com/):  Bastante genérico pero con mucho enfoque en la industria del juego y apuestas y en su regulación.
+
 
 ### Next Generation Internet
 
-- [**HIBI**](https://ontochain.ngi.eu/content/hibi). Ontochain. Seleccionado para la fase 2 del proyecto. Implementación de eIDAS. Empresa: Datarella.
+- [**HIBI**](https://ontochain.ngi.eu/content/hibi). Ontochain. Seleccionado para la fase 2 del proyecto. Implementación de eIDAS. Empresa: [Datarella](https://datarella.com/).
 
 - [**Gimly**](https://www.gimly.io/). Ontochain. No seleccionado para la fase 2 del proyecto.
 
@@ -245,29 +260,36 @@ Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table
 
 # Safe Credentials
 
+Safe Credentials es un término recogido por Evernym para englobar aquellas VCs que hagan uso de buenas prácticas, tanto en seguridad, como privacidad.
+Se establecen 5 puntos a tener en cuenta a la hora de construir el ecosistema sobre el que las VCs se apoyarán, así como el tipo de operaciones que se llevarán a cabo con ellas.
+
 - Issuer y Verifier desacoplados.
 
-	- Si el Verifier debe contactar al Issuer cada vez que el Holder use sus credenciales, el Issuer podría rastrear todos sus movimientos.
+	- Si el Verifier debe contactar al Issuer cada vez que el Holder use sus credenciales, el Issuer podría rastrear todos sus movimientos. Esto también puede provocar  problemas en la comunicación del ecosistema en el caso de que el Issuer deje de estar disponible.
 
-- No revelar la firma del Issuer en cada uso de las credenciales.
+- No revelar la firma del Issuer en cada uso de las credenciales ante el Verifier.
 
-	- Firma de tus credenciales, sin revelar su clave privada.
+	- Firma de tus credenciales, sin revelar su clave privada. De revelarse, se convertiría en una forma de correlacionar tus movimientos online.
 
 - Portabilidad e interoperabilidad.
 
-	- Evitar esto implicaría silos de datos, donde estos dejarían de poder comunicarse entre sí cuando fuese necesario.
+	- El no tener esto en cuenta implicaría silos de datos, donde estos dejarían de poder comunicarse entre sí cuando fuese necesario. Esto provocaría la falta de interoperabilidad en un sistema cuya finalidad es la escala global.
 
 - Flexibilidad y minimización de los datos.
 
-	- Presentar solamente aquellas credenciales estrictamente necesarias. Evitar así, revelación de demasiada información al Provider.
+	- Presentar solamente aquellas credenciales estrictamente necesarias. Evitar así, revelación de demasiada información al Provider. Esto implica que tan solo se revelen las credenciales necesarias, con la información justa, en cada operación. Esto es necesario pues se precisan diferentes datos dependiendo del contexto. En el caso, por ejemplo, de que se quiera comprobar si un cliente posee una licencia de conducir para un tipo determinado de coche, no es necesario, por ejemplo, exponer su dirección. Tan solo los tipos de vehículos para los que está legalmente cualificado para conducir.
 
 - Confianza bidireccional.
 
-	- El Holder debe poder verificarse ante el Provider al igual que el Provider debe poder verficarse ante el Holder.
+	- El Holder debe poder verificarse ante el Provider al igual que el Provider debe poder verficarse ante el Holder. De este modo se evita la posibilidad de suplantacion de la identidad de las empresas, y con ello, el posible robo de datos mediante técnicas de *phishing* o similares.
+
 
 # FAQ
 
-- VCs "cualifidadas": se estaá investigando si existe algo así, refereido a tiempo. En particular aparece como campo de validez `issuanceDate`. NB, puede ser una fecha futura.
+- **VCs "cualifidadas"**: La posibilidad de marcar las VCs con un sello temporal se da en el campo de `issuanceDate`, momento en el que la VC comienza a ser válida. Esta fecha puede ser una fecha futura. **Hay que tener en cuenta que es probable que el nombre de este campo se cambie en la próxima actualización de la especificación del W3C a las propiedades de ***validFrom*** e ***issued***.**
+Otra posibilidad es el uso del campo de `proof`. En este campo existe la posibilidad de referenciar varios tipos y formatos de prueba distintos, incluso a la vez. Uno de los formatos admitidos es **Timestamp Proofs**, aunque también se admiten pruebas de minado de bloque, como Proof-of-Work o Proof-of-Stake, lo que implica un sello temporal del momento de subida de la transacción.
+
+
 
 # Referencias
 
@@ -285,6 +307,9 @@ Otras empresas pueden encontrarse [aquí](https://digitaltrust.vc/startups-table
 
 - https://www.evernym.com/blog/introducing-safe-credentials/
 
+- https://www.w3.org/TR/vc-imp-guide/#proof-formats
+
+- https://github.com/hesusruiz/EntradasSSI
 
 --------
 

@@ -16,7 +16,7 @@ El modelo de datos actualmente está determinado por el **W3C**, conformado esen
 # Modelo de datos
 
 Más adelante se definirán en detalle y estructura.
-- Contexto de la VC. Definido mediante la propiedad `@context`de los ficheros JSON.
+- Contexto de la VC. Definido mediante la propiedad `@context` de los ficheros JSON.
 - Identidad del Issuer.
 - Timestamp del asunto (issue).
 - Timestamp del momento de expiración.
@@ -67,7 +67,7 @@ Los datos en una representación se pueden convertir a este modelo de datos, y d
 **La forma de la verificación no es normativa, esto es el campo de `proof`.**
   Todos los demás campos o propiedades, que se dictan a continuación del ejemplo, poseen esa nomenclatura.
   
-   Los valores que puedan tomar internamente, como *name*, se sigue buscando si hay algún tipo de estándar.
+   Los valores que puedan tomar internamente, como *name*, no están estandarizados.
 
 ```
 {

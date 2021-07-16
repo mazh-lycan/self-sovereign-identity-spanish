@@ -322,4 +322,44 @@ Sin embargo, está claro que a gran escala, cuando terceros entran en acción, h
 ![Federated ID VS Self-Sovereign ID](./FIVSSSI.jpeg)
 
 
+
+-------
+
+## Solución híbrida Identidad Federada e Identidad Autosoberana
+
+
+
+
+Una solución factible para la gestión de identidades dentro de empresas, o grupos asociados de confianza, es la Identidad Federada en conjunción con la Identidad Autosoberana.
+
+De este modo se logra la **mayor facilidad de implementación** de la Identidad Federada y la **mayor privacidad** proporcionada por la Identidad Autosoberana.
+
+Esta solución consiste en lo siguiente.
+
+Los usuarios, al igual que en un sistema de Identidad Federada, se identifican ante una aplicación que les dará paso a abrir sesión en todos los proveedores asociados y de confianza registrados.
+
+Esta vez, en lugar de almacenarse en un sistema centralizado, la aplicación federada consiste en un Issuer y un Owner de confianza desplegados en Hyperledger.
+
+La primera vez que un usuario accede, en el proceso interno lo que sucedería es que contactaría con el Issuer, el cual tras una serie de intercambios de mensajes seguros con el Owner, autenticados mediante el **nonce de la transacción** y **DIDs de un solo uso**, generaría una **Credencial Verificable para dicho usuario**. Esta se registraría en la Blockchain pública de Hyperledger y pasaría a ser del usuario.
+
+
+![Registro de usuario en un sistema de Identidad Federada + Identidad Autosoberana](./ssifitogether.png)
+
+
+
+
+Así, las subsiguientes veces que este se autentique ante el sistema de identidad, podría hacer uso de la Credencial Verificable que le identifica. Primeramente debería acceder al sistema usando algún tipo de credencial, sea biométrica o de otro tipo. Tras ello queda identificado ante el Owner, el cual le solicita cierta información, la cual será compartida desde sus VCs.
+
+Al hacer esto, esta información sería presentada al Owner, el cual genera la presentación verificable VP al proveedor de servicios asociado. De contener lo necesario sobre el usuario y los permisos adecuados, el usuario podría acceder a los servicios que haya solicitado.
+
+
+
+La principal diferencia de esta solución híbrida con SSI pura es el hecho de que los usuarios no interaccionan directamente con los proveedores de servicios. Aquí las **Presentaciones Verificables se elaboran a través de una entidad llamada Owner**, intermediaria en estos procesos de comunicación Holder-Service Provider. Esta  entidad es la **encargada de comprobar** que efectivamente las credenciales a presentar han sido **firmadas por el Issuer** de confianza. 
+
+
+Esta solución adapta a una escala menor las posibilidades de la SSI, haciendo que este sistema, todavía poco implementado a nivel global, sea más asequible de realizar.
+
+
+
+
 > Mashenka-ad
